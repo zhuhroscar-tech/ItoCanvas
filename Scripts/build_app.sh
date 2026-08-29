@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP_NAME="ItoCanvas"
 BUNDLE_ID="com.oscarzhu.itocanvas"
-VERSION="1.0.0"
+VERSION="1.0.1"
 BUILD="1"
 DIST="$ROOT/dist"
 APP="$DIST/$APP_NAME.app"

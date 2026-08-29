@@ -2,6 +2,13 @@
 
 All notable changes to ItoCanvas are documented here.
 
+## [1.0.1] - 2026-08-29
+
+### Fixed
+
+- Normalize corrupted or legacy scenario-grid resolution before use, preventing an unbounded allocation during workspace restoration
+- Add app-level persistence regression coverage alongside the quantitative core tests
+
 ## [1.0.0] - 2026-08-29
 
 ### Added

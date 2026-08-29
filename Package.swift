@@ -11,6 +11,7 @@ let package = Package(
     targets: [
         .target(name: "ItoCanvasCore"),
         .executableTarget(name: "ItoCanvas", dependencies: ["ItoCanvasCore"]),
-        .testTarget(name: "ItoCanvasCoreTests", dependencies: ["ItoCanvasCore"])
+        .testTarget(name: "ItoCanvasCoreTests", dependencies: ["ItoCanvasCore"]),
+        .testTarget(name: "ItoCanvasAppTests", dependencies: ["ItoCanvas"])
     ]
 )

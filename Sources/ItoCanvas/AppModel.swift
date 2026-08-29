@@ -174,6 +174,11 @@ struct ScenarioWorkspace: Codable, Equatable {
     var spotRangePercent: Double = 20
     var volatilityRangePoints: Double = 10
     var steps: Int = 9
+
+    mutating func normalizeForUse() {
+        steps = min(max(steps, 5), 15)
+        if steps.isMultiple(of: 2) { steps += 1 }
+    }
 }
 
 struct WorkspaceState: Codable, Equatable {
@@ -197,7 +202,8 @@ final class AppModel: ObservableObject {
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
         if let data = defaults.data(forKey: Self.persistenceKey),
-           let decoded = try? JSONDecoder().decode(WorkspaceState.self, from: data) {
+           var decoded = try? JSONDecoder().decode(WorkspaceState.self, from: data) {
+            decoded.scenarios.normalizeForUse()
             workspace = decoded
         } else {
             workspace = WorkspaceState()
