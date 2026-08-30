@@ -1,8 +1,24 @@
 # ItoCanvas
 
+[![macOS CI](https://github.com/zhuhroscar-tech/ItoCanvas/actions/workflows/ci.yml/badge.svg)](https://github.com/zhuhroscar-tech/ItoCanvas/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/zhuhroscar-tech/ItoCanvas?label=release)](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest)
+![macOS 14+](https://img.shields.io/badge/macOS-14%2B-111111?logo=apple)
+[![MIT license](https://img.shields.io/badge/license-MIT-2f855a.svg)](LICENSE)
+
 **A native, offline quantitative options laboratory for macOS.**
 
+![ItoCanvas Overview showing its options workspace, pricing metrics, and workflow](Assets/README/overview.png)
+
 ItoCanvas helps students, interview candidates, and analysts move from formulas to intuition. Price European options with Black–Scholes–Merton, inspect Greeks, recover implied volatility, build multi-leg strategies, and explore spot/volatility scenarios in one focused Mac app.
+
+[Download the latest release](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest) · [Model notes](Docs/MODEL_NOTES.md) · [Product documentation](Docs/PRODUCT.md)
+
+<details>
+<summary>See the Scenario Lab</summary>
+
+![ItoCanvas Scenario Lab showing a spot and volatility heatmap](Assets/README/scenarios.png)
+
+</details>
 
 ## Highlights
 
