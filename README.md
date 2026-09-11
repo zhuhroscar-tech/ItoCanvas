@@ -7,6 +7,10 @@
 
 **A native, offline quantitative options laboratory for macOS.**
 
+## Simple explanation
+
+ItoCanvas is a Mac app for learning and exploring how stock options are priced. Type in a few numbers about a stock and an option, and it instantly shows you the fair price and how that price would change as conditions shift — no spreadsheet or internet connection required. It's aimed at students and anyone studying for finance interviews who wants to build intuition, not just memorize formulas.
+
 ![ItoCanvas Overview showing its options workspace, pricing metrics, and workflow](Assets/README/overview.png)
 
 ItoCanvas helps students, interview candidates, and analysts move from formulas to intuition. Price European options with Black–Scholes–Merton, inspect Greeks, recover implied volatility, build multi-leg strategies, and explore spot/volatility scenarios in one focused Mac app.
