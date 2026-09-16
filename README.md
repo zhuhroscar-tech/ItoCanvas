@@ -1,88 +1,49 @@
+[![English](https://img.shields.io/badge/English-555555?style=flat)](README.md) [![简体中文](https://img.shields.io/badge/简体中文-555555?style=flat)](README.zh-CN.md)
+
 # ItoCanvas
 
-[![macOS CI](https://github.com/zhuhroscar-tech/ItoCanvas/actions/workflows/ci.yml/badge.svg)](https://github.com/zhuhroscar-tech/ItoCanvas/actions/workflows/ci.yml)
-[![Latest release](https://img.shields.io/github/v/release/zhuhroscar-tech/ItoCanvas?label=release)](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest)
-![macOS 14+](https://img.shields.io/badge/macOS-14%2B-111111?logo=apple)
-[![MIT license](https://img.shields.io/badge/license-MIT-2f855a.svg)](LICENSE)
+A native, offline macOS app for exploring option pricing and building intuition about risk. ItoCanvas brings European-option pricing, Greeks, implied volatility, multi-leg strategies, and spot/volatility scenarios into one SwiftUI workspace. It is designed for learning and analysis, not trade execution.
 
-**A native, offline quantitative options laboratory for macOS.**
+![Options workspace](Assets/README/overview.png)
 
-## Simple explanation
+## What you can do
 
-ItoCanvas is a Mac app for learning and exploring how stock options are priced. Type in a few numbers about a stock and an option, and it instantly shows you the fair price and how that price would change as conditions shift — no spreadsheet or internet connection required. It's aimed at students and anyone studying for finance interviews who wants to build intuition, not just memorize formulas.
+- Price European calls and puts with Black–Scholes–Merton and continuous dividend yield.
+- Inspect delta, gamma, vega, theta, and rho; solve implied volatility with no-arbitrage validation.
+- Explore a spot × volatility heatmap in the Scenario Lab.
+- Build expiration payoff charts using strategy presets or custom legs.
+- Save the workspace locally and export CSV data.
 
-![ItoCanvas Overview showing its options workspace, pricing metrics, and workflow](Assets/README/overview.png)
+[Scenario Lab screenshot](Assets/README/scenarios.png) · [Demo video](Docs/demo.mp4)
 
-ItoCanvas helps students, interview candidates, and analysts move from formulas to intuition. Price European options with Black–Scholes–Merton, inspect Greeks, recover implied volatility, build multi-leg strategies, and explore spot/volatility scenarios in one focused Mac app.
+## Install
 
-[Download the latest release](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest) · [Model notes](Docs/MODEL_NOTES.md) · [Product documentation](Docs/PRODUCT.md)
+Requires **macOS 14 Sonoma or later**. Download a DMG from [GitHub Releases](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest), open it, and drag **ItoCanvas** into **Applications**.
 
-<details>
-<summary>See the Scenario Lab</summary>
-
-![ItoCanvas Scenario Lab showing a spot and volatility heatmap](Assets/README/scenarios.png)
-
-</details>
-
-## Highlights
-
-- Native SwiftUI macOS interface
-- Black–Scholes–Merton pricing with continuous dividend yield
-- Delta, gamma, vega, theta, and rho
-- Bounded implied-volatility solver with no-arbitrage validation
-- Spot × volatility scenario heatmap
-- Multi-leg option strategy payoff analysis
-- Strategy presets and custom legs
-- Local workspace persistence and CSV export
-- Light/dark mode, keyboard navigation, and VoiceOver labels
-- Offline-first: no account, analytics, tracking, or network dependency
-
-## Requirements
-
-- macOS 14 Sonoma or later
-- Xcode 26 or another toolchain with Swift 6.2 or later to build from source
+The development packaging uses an ad-hoc signature, not Developer ID signing and notarization. macOS may warn or block launch; review the source and release provenance before deciding whether to run it. Do not disable system-wide security protections just to open the app.
 
 ## Build and test
 
+Use Xcode 26 or another toolchain providing **Swift 6.2+**:
+
 ```bash
+git clone https://github.com/zhuhroscar-tech/ItoCanvas.git
+cd ItoCanvas
 swift test
 ./Scripts/build_app.sh
 ./Scripts/create_dmg.sh
 ```
 
-Artifacts are written to `dist/`.
+The scripts write the application and DMG to `dist/`. Quantitative code lives in `Sources/ItoCanvasCore`; the SwiftUI interface, persistence, and export code live in `Sources/ItoCanvas`.
 
-## Install
+## Model conventions and limits
 
-1. Open `ItoCanvas.dmg`.
-2. Drag **ItoCanvas** into **Applications**.
-3. Launch ItoCanvas from Applications.
+Rates and volatility are entered as annualized percentages. Risk-free and dividend rates are continuously compounded; vega and rho are displayed per one percentage-point move, and theta per calendar day.
 
-The development DMG is ad-hoc signed. A public commercial release should be signed with an Apple Developer ID certificate and notarized before distribution outside GitHub.
+The model assumes European exercise and lognormal Black–Scholes–Merton dynamics with constant volatility and rates. It does not model early exercise, discrete dividends, volatility smiles or skew, jumps, or stochastic rates. Strategy charts use entered premiums to show expiration payoff, not pre-expiry mark-to-market P&L. Outputs are analytical estimates, not executable market quotes or investment advice.
 
-## Quantitative conventions
+See [Model notes](Docs/MODEL_NOTES.md) for formulas and solver details and [Product documentation](Docs/PRODUCT.md) for the workspace design.
 
-- European exercise
-- Lognormal Black–Scholes–Merton dynamics
-- Continuously compounded risk-free and dividend rates
-- Volatility and rate inputs shown as annualized percentages in the UI
-- Vega and rho displayed per one percentage-point move
-- Theta displayed per calendar day
+## Privacy and license
 
-ItoCanvas is an educational and analytical tool, not investment advice. Model outputs depend on assumptions and inputs and may differ from market prices.
-
-## Architecture
-
-- `Sources/ItoCanvasCore` — deterministic quantitative engine and value types
-- `Sources/ItoCanvas` — SwiftUI app, state, persistence, and export
-- `Tests/ItoCanvasCoreTests` — numerical and strategy tests
-- `Scripts` — repeatable app-bundle and DMG packaging
-- `Docs` — product and release documentation
-
-## Privacy
-
-See [PRIVACY.md](PRIVACY.md). ItoCanvas v1 does not transmit user data.
-
-## License
-
-MIT © 2026 Oscar Zhu
+No account or network connection is required; user data stays on the device. See [Privacy](PRIVACY.md), [Security](SECURITY.md), and the [MIT license](LICENSE).
