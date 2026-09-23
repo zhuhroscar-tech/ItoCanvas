@@ -29,12 +29,13 @@ Use Xcode 26 or another toolchain providing **Swift 6.2+**:
 ```bash
 git clone https://github.com/zhuhroscar-tech/ItoCanvas.git
 cd ItoCanvas
+python3 -m unittest discover -s Tests -p 'test_*.py' -v
 swift test
 ./Scripts/build_app.sh
 ./Scripts/create_dmg.sh
 ```
 
-The scripts write the application and DMG to `dist/`. Quantitative code lives in `Sources/ItoCanvasCore`; the SwiftUI interface, persistence, and export code live in `Sources/ItoCanvas`.
+The Python contract tests validate repository documentation and CI wiring before the Swift toolchain work starts. The scripts write the application and DMG to `dist/`. Quantitative code lives in `Sources/ItoCanvasCore`; the SwiftUI interface, persistence, and export code live in `Sources/ItoCanvas`.
 
 ## Model conventions and limits
 

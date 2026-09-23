@@ -18,6 +18,8 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
       - name: Toolchain
         run: swift --version
+      - name: Test repository contract
+        run: python3 -m unittest discover -s Tests -p 'test_*.py' -v
       - name: Test quantitative engine
         run: swift test
       - name: Build release app

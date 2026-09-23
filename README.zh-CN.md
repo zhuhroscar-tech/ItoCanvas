@@ -29,12 +29,13 @@
 ```bash
 git clone https://github.com/zhuhroscar-tech/ItoCanvas.git
 cd ItoCanvas
+python3 -m unittest discover -s Tests -p 'test_*.py' -v
 swift test
 ./Scripts/build_app.sh
 ./Scripts/create_dmg.sh
 ```
 
-脚本将应用和 DMG 写入 `dist/`。量化计算位于 `Sources/ItoCanvasCore`；SwiftUI 界面、持久化和导出逻辑位于 `Sources/ItoCanvas`。
+Python contract tests 会先验证仓库文档与 CI 配置，再进入 Swift toolchain 检查。脚本将应用和 DMG 写入 `dist/`。量化计算位于 `Sources/ItoCanvasCore`；SwiftUI 界面、持久化和导出逻辑位于 `Sources/ItoCanvas`。
 
 ## 模型约定与限制
 
