@@ -25,6 +25,17 @@ class RepositoryContractTests(unittest.TestCase):
 
         self.assertEqual(missing, [])
 
+    def test_changelog_documents_latest_release(self):
+        changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
+
+        for expected in [
+            "## [1.0.2] - 2026-09-23",
+            "repository contract checks",
+            "Swift package declarations",
+            "CI coverage",
+        ]:
+            self.assertIn(expected, changelog)
+
     def test_readme_local_links_resolve(self):
         for readme in [ROOT / "README.md", ROOT / "README.zh-CN.md"]:
             body = readme.read_text(encoding="utf-8")

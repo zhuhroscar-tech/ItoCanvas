@@ -2,6 +2,17 @@
 
 All notable changes to ItoCanvas are documented here.
 
+## [1.0.2] - 2026-09-23
+
+### Added
+
+- Add repository contract checks for required files, README local links, Swift package declarations, and CI coverage
+- Run repository contract checks in macOS CI before Swift tests, app packaging, DMG creation, and signature verification
+
+### Changed
+
+- Document the repository validation step in English and Simplified Chinese build instructions
+
 ## [1.0.1] - 2026-08-29
 
 ### Fixed
