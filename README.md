@@ -18,7 +18,7 @@ A native, offline macOS app for exploring option pricing and building intuition 
 
 ## Install
 
-Requires **macOS 14 Sonoma or later**. Download a DMG from [GitHub Releases](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest), open it, and drag **ItoCanvas** into **Applications**.
+Requires **macOS 14 Sonoma or later**. Download a DMG from [GitHub Releases](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest), open it, and drag **ItoCanvas** into **Applications**. For maintenance history, see the [changelog](CHANGELOG.md).
 
 The development packaging uses an ad-hoc signature, not Developer ID signing and notarization. macOS may warn or block launch; review the source and release provenance before deciding whether to run it. Do not disable system-wide security protections just to open the app.
 

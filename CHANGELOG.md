@@ -2,6 +2,24 @@
 
 All notable changes to ItoCanvas are documented here.
 
+## [1.0.4] - 2026-09-25
+
+### Added
+
+- Link release history from the English and Simplified Chinese READMEs
+- Run macOS CI for version tags as well as main-branch pushes and pull requests
+
+### Fixed
+
+- Record the already-published v1.0.3 release in the changelog before cutting the next maintenance release
+
+## [1.0.3] - 2026-09-24
+
+### Fixed
+
+- Document the already-published v1.0.2 release in this changelog
+- Add regression coverage so the latest published release remains represented in release history
+
 ## [1.0.2] - 2026-09-23
 
 ### Added

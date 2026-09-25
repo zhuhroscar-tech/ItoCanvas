@@ -18,7 +18,7 @@
 
 ## 安装
 
-需要 **macOS 14 Sonoma 或更新版本**。从 [GitHub Releases](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest) 下载 DMG，打开后将 **ItoCanvas** 拖入 **Applications**。
+需要 **macOS 14 Sonoma 或更新版本**。从 [GitHub Releases](https://github.com/zhuhroscar-tech/ItoCanvas/releases/latest) 下载 DMG，打开后将 **ItoCanvas** 拖入 **Applications**。维护历史见 [changelog](CHANGELOG.md)。
 
 开发版打包使用 ad-hoc 签名，未采用 Developer ID 签名和 notarization。macOS 可能提示风险或阻止启动；请先确认源码与 release 来源，再决定是否运行。不要为打开应用而关闭系统级安全保护。
 

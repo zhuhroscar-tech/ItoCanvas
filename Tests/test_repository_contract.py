@@ -25,16 +25,26 @@ class RepositoryContractTests(unittest.TestCase):
 
         self.assertEqual(missing, [])
 
-    def test_changelog_documents_latest_release(self):
+    def test_changelog_documents_published_releases(self):
         changelog = (ROOT / "CHANGELOG.md").read_text(encoding="utf-8")
 
         for expected in [
+            "## [1.0.4] - 2026-09-25",
+            "## [1.0.3] - 2026-09-24",
             "## [1.0.2] - 2026-09-23",
+            "Run macOS CI for version tags",
+            "latest published release remains represented",
             "repository contract checks",
             "Swift package declarations",
             "CI coverage",
         ]:
             self.assertIn(expected, changelog)
+
+    def test_readmes_link_release_history(self):
+        for readme in [ROOT / "README.md", ROOT / "README.zh-CN.md"]:
+            body = readme.read_text(encoding="utf-8")
+
+            self.assertIn("CHANGELOG.md", body, f"{readme.name} should link release history")
 
     def test_readme_local_links_resolve(self):
         for readme in [ROOT / "README.md", ROOT / "README.zh-CN.md"]:
@@ -72,6 +82,7 @@ class RepositoryContractTests(unittest.TestCase):
             "./Scripts/create_dmg.sh",
             "codesign --verify --deep --strict",
             "dist/ItoCanvas.dmg",
+            "tags: ['v*']",
         ]:
             self.assertIn(expected, workflow)
 
